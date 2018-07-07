@@ -1,0 +1,31 @@
+from queue import Queue
+
+
+q = Queue(3)
+print(q.qsize())
+q.put("a")
+q.put("b")
+q.put('c')
+
+# q.get()
+# q.get()
+# q.get()
+# q.put("q")
+# q.put_nowait("w")
+print(q.qsize())
+print(q.unfinished_tasks)
+q.task_done()
+# q.get()
+# q.get()
+# q.get()
+print(q.unfinished_tasks)
+# q.all_tasks_done()
+# q.all_tasks_done()
+# q.all_tasks_done()
+print(q.unfinished_tasks)
+print(q.qsize())
+# put往队列例添加数据 (qsize会加1, 同时unfinished也会加一)
+# get从队列里取出数据(数据取出并没有完全处理,qsize会减1, unfinished并不会减少)
+# qsize队列里的元素个数
+# unfinished 未完成的数据(每一次put都会加1,只有在调用task_done的时候才会减少)
+# task_done(处理完成一条数据, 每次调用unfinished会减1)
